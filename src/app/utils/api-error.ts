@@ -1,12 +1,12 @@
 class ApiError extends Error {
+    statusCode: number;
+    isOperational: boolean;
+
     constructor(statusCode: number, message: string) {
-        super(message)
-        //@ts-expect-error
+        super(message);
         this.statusCode = statusCode;
         this.message = message;
-        // @ts-expect-error
         this.isOperational = true;
-        // TODO: Read NodeJS Docs
         Error.captureStackTrace(this, this.constructor);
     }
 

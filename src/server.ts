@@ -1,6 +1,6 @@
-import { createServer } from 'node:http';
-import { env } from './env.js';
-import { createApplication } from './app/index.js';
+import { createServer } from "node:http";
+import { env } from "./env.js";
+import { createApplication } from "./app/index.js";
 
 async function main() {
     try {
@@ -12,7 +12,7 @@ async function main() {
             console.log(`Server URL: http://localhost:${PORT}`);
         });
     } catch (error) {
-        console.error('Error starting server:', error);
+        console.error("Error starting server:", error);
         throw error;
     }
 }
