@@ -1,0 +1,29 @@
+# Build output
+dist/
+build/
+out/
+
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Coverage & caches
+coverage/
+*.tsbuildinfo
+.eslintcache
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+*.pem
+
+# Lock files — auto-generated, don't format
+bun.lock
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Drizzle — generated migrations & metadata
+drizzle/meta/
+drizzle/*.sql
