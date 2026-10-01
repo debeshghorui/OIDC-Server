@@ -1,9 +1,9 @@
-import "dotenv/config";
+import { env } from "../env.js";
 import type { NodePgDatabase } from "drizzle-orm/node-postgres";
 import * as schema from "./schema.js";
 import { drizzle } from "drizzle-orm/node-postgres";
 
-const connectionString = process.env.DATABASE_URL;
+const connectionString = env.DATABASE_URL;
 
 if (!connectionString) {
     throw new Error("DATABASE_URL environment variable is not defined");

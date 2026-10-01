@@ -1,8 +1,10 @@
+import "dotenv/config";
 import { z } from "zod";
 
 const envSchema = z.object({
+    NODE_ENV: z.enum(["development", "production"]).default("development"),
     PORT: z.string().default("8080"),
-    // API_KEY: z.string().min(1)
+    DATABASE_URL: z.string().optional(),
 });
 
 function createEnv(env: NodeJS.ProcessEnv) {
