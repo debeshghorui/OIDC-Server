@@ -1,7 +1,7 @@
 {
     "name": "oidc-server",
     "version": "1.0.0",
-    "description": "OIDC server built with Express, TypeScript, drizzle-orm, and PostgreSQL",
+    "description": "OIDC server built with Hono, better-auth, TypeScript, Drizzle ORM, and PostgreSQL",
     "type": "module",
     "main": "dist/server.js",
     "scripts": {
@@ -25,7 +25,6 @@
     "packageManager": "pnpm@10.14.0",
     "devDependencies": {
         "@eslint/js": "^10.0.1",
-        "@types/express": "^5.0.6",
         "@types/node": "^25.5.0",
         "@types/pg": "^8.20.0",
         "drizzle-kit": "^0.31.10",
@@ -39,11 +38,13 @@
         "typescript-eslint": "^8.62.0"
     },
     "dependencies": {
-        "@types/jsonwebtoken": "^9.0.10",
+        "@better-auth/drizzle-adapter": "^1.7.12",
+        "@better-auth/oauth-provider": "^1.7.12",
+        "@hono/node-server": "^2.1.5",
+        "better-auth": "^1.7.12",
         "dotenv": "^17.3.1",
         "drizzle-orm": "^0.45.2",
-        "express": "^5.2.1",
-        "jsonwebtoken": "^9.0.3",
+        "hono": "^4.13.13",
         "pg": "^8.20.0",
         "zod": "^4.3.6"
     }

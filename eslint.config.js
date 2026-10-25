@@ -11,6 +11,7 @@ export default tseslint.config(
             "out/",
             "node_modules/",
             "coverage/",
+            "auth-schema.*",
             "drizzle/meta/",
             "drizzle/*.sql",
         ],

@@ -9,4 +9,6 @@ if (!connectionString) {
     throw new Error("DATABASE_URL environment variable is not defined");
 }
 
-export const db: NodePgDatabase<typeof schema> = drizzle(connectionString);
+export const db: NodePgDatabase<typeof schema> = drizzle(connectionString, {
+    schema,
+});
