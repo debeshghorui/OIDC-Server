@@ -24,6 +24,7 @@ PORT=8080
 DATABASE_URL=postgresql://postgres:password@localhost:5433/todo_app
 BETTER_AUTH_SECRET=<a random secret with at least 32 characters>
 BETTER_AUTH_URL=http://localhost:8080
+CLIENT_URL=http://localhost:3000
 ```
 
 Generate a secret with `openssl rand -base64 32`. Apply the database migrations, compile the server, and start it:
@@ -53,7 +54,7 @@ Better Auth endpoints are mounted under `/api/auth`, including:
 - Signing keys: `/api/auth/jwks`
 - Device authorization: `/api/auth/device/code`, `/api/auth/device`, `/api/auth/device/approve`, `/api/auth/device/deny`
 
-The built-in `/sign-in` and `/consent` pages continue OAuth authorization requests. Public clients must use S256 PKCE, and redirect URIs are matched exactly. Auth endpoints use Better Auth rate limiting.
+The client app serves the sign-in and consent pages at `CLIENT_URL`. Better Auth sends OAuth authorization requests there, while the client submits credentials and consent decisions to the server's `/api/auth` endpoints. Public clients must use S256 PKCE, and redirect URIs are matched exactly. Auth endpoints use Better Auth rate limiting.
 
 ## Database commands
 

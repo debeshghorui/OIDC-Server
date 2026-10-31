@@ -11,6 +11,7 @@ import { env } from "./env.js";
 
 const authOptions: BetterAuthOptions = {
     baseURL: env.BETTER_AUTH_URL,
+    trustedOrigins: [env.CLIENT_URL],
     rateLimit: {
         enabled: true,
     },
@@ -27,8 +28,8 @@ const authOptions: BetterAuthOptions = {
             },
         }),
         oauthProvider({
-            loginPage: "/sign-in",
-            consentPage: "/consent",
+            loginPage: `${env.CLIENT_URL}/sign-in`,
+            consentPage: `${env.CLIENT_URL}/consent`,
             grantTypes: [
                 "authorization_code",
                 "refresh_token",
