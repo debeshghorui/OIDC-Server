@@ -22,7 +22,6 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "packageManager": "pnpm@10.14.0",
     "devDependencies": {
         "@eslint/js": "^10.0.1",
         "@types/node": "^25.5.0",
