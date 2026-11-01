@@ -1,0 +1,16 @@
+import { SignUpForm } from "../ui";
+
+type Search = Promise<Record<string, string | string[] | undefined>>;
+
+export default async function SignUpPage({ searchParams }: { searchParams: Search }) {
+  const query = await searchParams;
+  const error = query.error_description ?? query.error;
+  const params = new URLSearchParams();
+  for (const [key, value] of Object.entries(query)) {
+    if (Array.isArray(value)) value.forEach((item) => params.append(key, item));
+    else if (value !== undefined) params.append(key, value);
+  }
+  params.delete("error");
+  params.delete("error_description");
+  return <SignUpForm oauthQuery={params.toString()} initialError={Array.isArray(error) ? error[0] : error} />;
+}

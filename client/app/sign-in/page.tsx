@@ -10,5 +10,7 @@ export default async function SignInPage({ searchParams }: { searchParams: Searc
     if (Array.isArray(value)) value.forEach((item) => params.append(key, item));
     else if (value !== undefined) params.append(key, value);
   }
+  params.delete("error");
+  params.delete("error_description");
   return <SignInForm oauthQuery={params.toString()} initialError={Array.isArray(error) ? error[0] : error} />;
 }
